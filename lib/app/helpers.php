@@ -152,3 +152,21 @@
     		return $amount*0.1;
     	}
     }
+
+    function gender_format($gender){
+    	switch ($gender) {
+    		case 1:
+    			return 'Nam';
+    			break;
+    		case 2:
+    			return 'Nữ';
+    			break;
+    		case 3:
+    			return 'Khác';
+    			break;
+    		
+    		default:
+    			return 'Lỗi';
+    			break;
+    	}
+    }

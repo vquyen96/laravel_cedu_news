@@ -159,16 +159,13 @@ class CourseController extends Controller
                     $i = 0;
                     foreach ($data['part'] as $part) {
                         foreach ($part->lesson as $lesson) {
-                           
                            $data['listVideo'][$i] = $lesson->les_link;
                            $i++;
                         }
                     }
                     $data['video'] = $data['listVideo'][$id];
-                   /* dd($data['video']);*/
-                    // dd($data['video']);
-                    // dd($data['video']);
-                    return view('frontend.video',$data);
+                   
+                    return view('frontend.course.video',$data);
                 }
                 else{
                     return redirect('courses/detail/'.$slug.'.html')->with('error','Bạn chưa kích hoạt khóa học này');

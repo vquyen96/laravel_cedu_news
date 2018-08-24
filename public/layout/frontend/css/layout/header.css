@@ -16,13 +16,17 @@ header{
 	text-align: center;
 
 }
-.headerLeftItem a{
+.headerLeftItem{
+	position: relative;
+}
+.headerLeftItem>a{
 	font-family: 'Montserrat', sans-serif;
 	font-weight: bold;
 	color: #999;
 	font-size: 14px;
 	text-decoration: none;
 	padding: 20px 0;
+	cursor: pointer;
 }
 .inputSearchHead{
 	height: 40px;
@@ -104,9 +108,57 @@ header{
 	display: flex;
 	align-items: center;
 }
-.headerRightItem.ava a{
+.headerRightItem.ava>a{
 	display: block;
 	width: 36px;
 	height: 36px;
 	border-radius: 50%;
+	cursor: pointer;
+}
+
+
+.headerItemDropdown{
+	display: none;
+}
+.headerItemDropdown.ava{
+	position: absolute;
+	top: 102%;
+	right: 0;
+	width: 240px;
+	background: #fff;
+	box-shadow: 1px 1px 2px #0006;
+	z-index: 2;
+}
+.headerItemDropdown.course{
+	position: absolute;
+	top: 102%;
+	left: 0;
+	width: 240px;
+	background: #fff;
+	box-shadow: 1px 1px 2px #0006;
+	z-index: 2;
+}
+.headerItemDropdownItem{
+	display: flex;
+	height: 50px;
+	line-height: 50px;
+}
+.headerItemDropdownItem:hover{
+	background: #ececec;
+}
+.headerItemDropdownItemIcon{
+	width: 50px;
+	flex-shrink: 0;
+	color: #999;
+}
+.headerItemDropdownItemIcon img{
+	width: 60%;
+}
+a.headerItemDropdownItemContent{
+	white-space: nowrap;
+	flex: 1;
+	text-align: left;
+	color: #999;
+	text-decoration: none;
+	font-weight: 600;
 }

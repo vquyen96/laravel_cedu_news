@@ -18,7 +18,8 @@ use Auth;
 class HomeController extends Controller
 {
     public function getHome(){
-		$data['groups'] = Group::where('gr_parent_id', 0)->get();
+		// $data['groups'] = Group::where('gr_parent_id', 0)->get();
+        
 		// $data['coursefollow'] = Course::orderBy('cou_price','desc')->where('cou_status', '1')->paginate(4);
 		// $data['coursenew'] = Course::orderBy('created_at','desc')->where('cou_status', '1')->paginate(4);
 		// $data['courserate'] = Course::orderBy('cou_star','desc')->where('cou_status', '1')->paginate(4);

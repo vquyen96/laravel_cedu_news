@@ -107,6 +107,7 @@
 
 	<script type="text/javascript" src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/master2.js"></script>
+	<script type="text/javascript" src="js/index/index.js"></script>
 	@yield('script')
 
 	

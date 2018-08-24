@@ -15,9 +15,12 @@ class LoginController extends Controller
 
     	// dd($arr);
     	if(Auth::attempt($arr, true)){
-    		if (Auth::user()->level > 7  ) {
+    		if (Auth::user()->level > 6  ) {
+                if (Auth::user()->level == 7) {
+                    return redirect('/');
+                }
                 if (Auth::user()->level == 8) {
-                    return redirect('user_aff');
+                    return redirect('teacher/dashboard');
                 }
                 else{
                     return redirect('/');

@@ -60,7 +60,7 @@ class UserController extends Controller
         if (Auth::check()) {
             
             $data['user'] = Account::find(Auth::user()->id);
-            return view('frontend.user_profile', $data);
+            return view('frontend.user.profile', $data);
         }
     	else{
             return redirect('/');
@@ -137,24 +137,37 @@ class UserController extends Controller
     }
     public function postUser(Request $request){
     	$acc = Account::find(Auth::user()->id);
-        $acc->name = $request->name;
+        $data = $request->acc;
+        
         $image = $request->file('img');
         if ($request->hasFile('img')) {
-            $acc->img = saveImage([$image], 200, 'avatar');
-            // $filename = time() . '.' . $image->getClientOriginalExtension();
-            // $acc->img = $filename;
-            // $request->img->storeAs('avatar',$filename);
+            $data['img'] = saveImage([$image], 200, 'avatar');
+            // dd($data);
         }
-        $acc->content = $request->content;
-        $acc->save();
+        $acc->update($data);
         return back()->with('success','Sửa tài khoản thành công');
     }
+
+    public function getChangePass(){
+        return view('frontend.user.change_pass');
+    }
     public function postChangePass(Request $request){
-        if (Auth::check()) {
-            $acc = Account::find(Auth::user()->id);
-            $acc->password = bcrypt($request->new_pass);
-            $acc->save();
-            return back()->with('success', 'Mật khẩu của bạn đã được thay đổi');
+        if(Hash::check($request->old_password, Auth::user()->password)){
+
+            if($request->new_password == $request->re_new_password){
+                $acc = Account::find(Auth::user()->id);
+                $acc->password = Hash::make($request->new_password);
+                $acc->save();
+                
+                return back()->with('success', 'Thay đổi mật khẩu thành công');
+            }
+            
+            else{
+                return back()->withInput()->with('error','Nhập lại mật khẩu mới không trùng khớp');
+            }   
+        }
+        else{
+            return back()->withInput()->with('error','Mật khẩu cũ không đúng');
         }
        
         

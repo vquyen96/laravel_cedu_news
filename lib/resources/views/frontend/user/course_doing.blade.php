@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="css/owlcarousel/owl.carousel.min.css">
 <link rel="stylesheet" href="css/owlcarousel/owl.theme.default.min.css">
 <link rel="stylesheet" type="text/css" href="css/user/course.css">
-<link href="http://vjs.zencdn.net/6.6.3/video-js.css" rel="stylesheet">
+<link href="css/plugins/video-js.css" rel="stylesheet">
 <div class="header_main">
 	<div class="header_main_body">
 		<a href="{{ asset('user/course_doing') }}" class="header_main_item {{ Request::segment(3) != 'course_doing' ? 'active' : '' }}">
@@ -60,7 +60,7 @@
 				<div class="courseHeadVideo">
 					<script src="http://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script>
 					<video id="my-video" class="video-js" controls preload="auto"
-				  poster="" data-setup="{}"  src="">
+				  poster="img/poster72.png" data-setup="{}"  src="">
 					    <source src="{{ asset('lib/public/uploads/1528794961.mp4') }}" type='video/webm'>
 					    <p class="vjs-no-js">
 					      	<a href="{{ asset('') }}" target="_blank"></a>
@@ -235,5 +235,5 @@
 @section('script')
 	<script src="js/owl.carousel.min.js"></script>
 	<script type="text/javascript" src="js/user/course_doing.js"></script>
-	<script src="http://vjs.zencdn.net/6.6.3/video.js"></script>
+	<script src="js/plugins/video.js"></script>
 @stop

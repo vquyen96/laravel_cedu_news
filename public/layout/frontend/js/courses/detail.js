@@ -19,8 +19,10 @@ function getRateChart (){
 function tagScroll(){
 	var courseTag = $('.courseTag').offset().top;
 	var footer = $('footer').offset().top;
+	// console.log(courseTag);
 	$( document ).scroll(function(){
 		var top = $(document).scrollTop();
+		// console.log(top);
 
 		if (top > courseTag-10 && top < footer - $(window).height() + 200) {
 			$('.courseTag').css('margin-top', top-courseTag+10);

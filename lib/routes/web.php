@@ -227,7 +227,8 @@ Route::group(['namespace'=>'Frontend', 'middleware'=>'CORS'],function(){
 
 		Route::get('course_doing', 'UserController@getCourseDoing');
 		Route::get('course_done', 'UserController@getCourseDone');
-		
+
+		Route::get('change_pass', 'UserController@getChangePass');
 		Route::post('change_pass', 'UserController@postChangePass');
 	});
 
@@ -247,8 +248,15 @@ Route::group(['namespace'=>'Frontend', 'middleware'=>'CORS'],function(){
 	Route::get('doitacgiaovien', 'PartnerController@getGiaovien');
 	Route::post('doitacgiaovien', 'PartnerController@postGiaovien');
 
-	Route::get('teacher/{email}','UserController@getTeacher');
-	Route::get('teacher/{email}/{rate}', 'UserController@getTeacherRating');
+
+	Route::group(['prefix' => 'teacher'], function(){
+		Route::get('dashboard', 'TeacherController@getDashboard');
+		Route::get('course/{slug}', 'TeacherController@getCourse');
+		Route::get('/{email}','UserController@getTeacher');
+		Route::get('/{email}/{rate}', 'UserController@getTeacherRating');
+
+	});
+		
 
 	Route::group(['prefix'=>'forgot_pass'], function(){
 		Route::get('/','ForgotPass@getPage');

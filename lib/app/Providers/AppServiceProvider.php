@@ -18,7 +18,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $data['group'] = Group::all();
+        $data['groups'] = Group::where('gr_parent_id', 0)->get();
         $data['about_list'] = About::all();
         $data['noti'] = Noti::paginate(6);
         
