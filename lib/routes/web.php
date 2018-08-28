@@ -225,6 +225,8 @@ Route::group(['namespace'=>'Frontend', 'middleware'=>'CORS'],function(){
 		Route::get('/','UserController@getUser');
 		Route::post('/','UserController@postUser');
 
+		// Route::get('dashboard', )
+
 		Route::get('course_doing', 'UserController@getCourseDoing');
 		Route::get('course_done', 'UserController@getCourseDone');
 

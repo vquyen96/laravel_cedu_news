@@ -16,7 +16,7 @@ class HomeController extends Controller
 {
     public function getHome(){
         if (Auth::user()->level == 7) {
-            return redirect('admin/home_teacher');
+            return redirect('teacher/dashboard');
         }
         else{
             if (Auth::user()->level == 3) {

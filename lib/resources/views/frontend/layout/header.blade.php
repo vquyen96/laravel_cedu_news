@@ -94,7 +94,7 @@
 						<div class="headerItemDropdownItemIcon">
 							<i class="fas fa-tachometer-alt"></i>
 						</div>
-						<a href="{{ asset('user/course_doing') }}" class="headerItemDropdownItemContent">
+						<a href="{{ asset('teacher/dashboard') }}" class="headerItemDropdownItemContent">
 							Thống kê
 						</a>
 					</div>

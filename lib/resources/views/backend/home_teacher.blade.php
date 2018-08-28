@@ -452,7 +452,7 @@ window.onload = function () {
 			indexLabel: "{label} - {y}%",
 			dataPoints: [
 				<?php $total = $acc->course->count() ?>
-				@foreach ($group as $gr)
+				@foreach ($groups as $gr)
 					<?php $count = 0;?>
 		 			@foreach ($acc->course as $item)
 		 				@if ($item->group->gr_id == $gr->gr_id )
