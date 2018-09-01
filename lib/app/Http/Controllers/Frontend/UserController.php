@@ -182,17 +182,19 @@ class UserController extends Controller
             $data['rate'] = "";
         }
         
-        switch ($data['teacher']->teacher->tea_templace) {
-            case 1:
-                return view('frontend.teacher1',$data);
-            case 2:
-                return view('frontend.teacher2',$data);
-            case 3:
-                return view('frontend.teacher3',$data);
-            default:
-                return view('frontend.teacher1',$data);
-        }
-        return view('frontend.teacher1',$data);
+        // switch ($data['teacher']->teacher->tea_templace) {
+        //     case 1:
+        //         return view('frontend.teacher1',$data);
+        //     case 2:
+        //         return view('frontend.teacher2',$data);
+        //     case 3:
+        //         return view('frontend.teacher3',$data);
+        //     default:
+        //         return view('frontend.teacher1',$data);
+        // }
+        // dd($data['teacher']);
+        $data['course'] = Course::where('cou_tea_id',$data['teacher']->id)->paginate(6);
+        return view('frontend.teacher.profile',$data);
     }
 
     public function getTeacherRating($email ,$rate){
@@ -290,5 +292,16 @@ class UserController extends Controller
 
             return back()->with('error', 'Bạn đã gửi yêu cầu rút tiền rồi');
         }
+    }
+
+    // TOP THÀNH VIÊN
+    public function getTopUser(){
+        return view('frontend.user.top_user');
+    }
+
+    // LỊCH SỬ GIAO DỊCH
+    public function getHisDeal(){
+        $data['orderDeTable'] = OrderDetail::where('orderDe_aff_id', Auth::user()->id)->orderBy('created_at', 'desc')->paginate(10);
+        return view('frontend.user.his_deal', $data);
     }
 }

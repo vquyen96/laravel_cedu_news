@@ -20,7 +20,7 @@ class LoginController extends Controller
                     return redirect('teacher/dashboard');
                 }
                 if (Auth::user()->level == 8) {
-                    return redirect('teacher/dashboard');
+                    return redirect('user/dashboard');
                 }
                 else{
                     return redirect('/');
