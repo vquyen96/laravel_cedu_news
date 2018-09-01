@@ -14,9 +14,10 @@ use Auth;
 class DocController extends Controller
 {
     public function getList(){
-       
-        $gr_slug = Group::first()->gr_slug;
-        return redirect('doc/'.$gr_slug);
+        $data['document'] = Doc::orderBy('doc_id','asc')->paginate(15);
+        // $gr_slug = Group::first()->gr_slug;
+        // return redirect('doc/'.$gr_slug);
+        return view('frontend.document.document',$data);
     	// $data['group'] = Group::all();
      //    $data['bannerHead'] = Banner::where('ban_name','like','Banner Tài Liệu_Phía Trên')->get();
 

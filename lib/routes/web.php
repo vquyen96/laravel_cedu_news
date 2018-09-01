@@ -232,6 +232,12 @@ Route::group(['namespace'=>'Frontend', 'middleware'=>'CORS'],function(){
 
 		Route::get('change_pass', 'UserController@getChangePass');
 		Route::post('change_pass', 'UserController@postChangePass');
+
+		//top thành viên
+		Route::get('top_user','UserController@getTopUser');
+
+		//lịch sử giao dịch
+		Route::get('his_deal','UserController@getHisDeal');
 	});
 
 

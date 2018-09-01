@@ -25,12 +25,12 @@
 			</div>
 		</div>
 		<div class="headerLeftItem {{ Request::segment(1) != '' ? 'd-none' : '' }}">
-			<a href="{{ asset('courses') }}">
+			<a href="{{ asset('doc') }}">
 				Tài liệu
 			</a>
 		</div>
 		<div class="headerLeftItem {{ Request::segment(1) != '' ? 'd-none' : '' }}">
-			<a href="{{ asset('courses') }}">
+			<a href="{{ asset('news') }}">
 				Tin tức
 			</a>
 		</div>
@@ -121,7 +121,7 @@
 							<div class="headerItemDropdownItemIcon">
 								<i class="fas fa-medal"></i>
 							</div>
-							<a href="{{ asset('user/change_pass') }}" class="headerItemDropdownItemContent">
+							<a href="{{ asset('user/top_user') }}" class="headerItemDropdownItemContent">
 								Top thành viên
 							</a>
 						</div>
@@ -129,7 +129,7 @@
 							<div class="headerItemDropdownItemIcon">
 								<i class="fas fa-history"></i>
 							</div>
-							<a href="{{ asset('user/change_pass') }}" class="headerItemDropdownItemContent">
+							<a href="{{ asset('user/his_deal') }}" class="headerItemDropdownItemContent">
 								Lịch sử giao dịch
 							</a>
 						</div>

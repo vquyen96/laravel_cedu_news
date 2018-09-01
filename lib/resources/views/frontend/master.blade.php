@@ -4,11 +4,11 @@
 	<!-- Global Site Tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
 	<script>
-	  window.dataLayer = window.dataLayer || [];
-	  function gtag(){dataLayer.push(arguments);}
-	  gtag('js', new Date());
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
 
-	  gtag('config', 'UA-123557478-1');
+		gtag('config', 'UA-123557478-1');
 	</script>
 	<title>@yield('title')</title>
 
@@ -22,10 +22,10 @@
 	<meta property="fb:app_id" 		content="1577563652342523" />
 	<meta property="og:title" 		content="@yield('fb_title')" />
 	<meta property="og:description" content="@yield('fb_description')" />
-    <meta property="og:image" 		content="@yield('fb_image')" />
-    <meta property="og:image:type" 	content="image/png">
-    <meta property="og:image:width" content="300">
-    <meta property="og:image:height" content="300">
+	<meta property="og:image" 		content="@yield('fb_image')" />
+	<meta property="og:image:type" 	content="image/png">
+	<meta property="og:image:width" content="300">
+	<meta property="og:image:height" content="300">
 
     {{-- <meta property="og:url" content="https://developers.zalo.me/" />
 	<meta property="og:title" content="Zalo For Developers" />
@@ -40,9 +40,14 @@
 	<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif:500|Roboto:400,500" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,700,800" rel="stylesheet">
 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 	<link rel="stylesheet" type="text/css" href="css/master.css">
 	<link rel="stylesheet" type="text/css" href="css/layout/header.css">
 	<link rel="stylesheet" type="text/css" href="css/layout/footer.css">
+
 </head>
 
 <body>
@@ -62,7 +67,7 @@
 		</div>
 	</div>
 	<input type="hidden" name="url" value="{{ asset('')}}">
-   
+
 	{{-- <div class="btnScrollTop">
 		<i class="fa fa-angle-double-up" aria-hidden="true"></i>
 	</div> --}}
@@ -111,25 +116,25 @@
 	@yield('script')
 
 	
-	</script>
-	<script>
-	  window.fbAsyncInit = function() {
-	    FB.init({
-	      appId      : '1577563652342523',
-	      xfbml      : true,
-	      version    : 'v2.12'
-	    });
-	    FB.AppEvents.logPageView();
-	  };
+</script>
+<script>
+	window.fbAsyncInit = function() {
+		FB.init({
+			appId      : '1577563652342523',
+			xfbml      : true,
+			version    : 'v2.12'
+		});
+		FB.AppEvents.logPageView();
+	};
 
-	  (function(d, s, id){
-	     var js, fjs = d.getElementsByTagName(s)[0];
-	     if (d.getElementById(id)) {return;}
-	     js = d.createElement(s); js.id = id;
-	     js.src = "https://connect.facebook.net/en_US/sdk.js";
-	     fjs.parentNode.insertBefore(js, fjs);
-	   }(document, 'script', 'facebook-jssdk'));
-	</script>	
-	
+	(function(d, s, id){
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) {return;}
+		js = d.createElement(s); js.id = id;
+		js.src = "https://connect.facebook.net/en_US/sdk.js";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+</script>	
+
 </body>
 </html>
