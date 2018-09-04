@@ -33,12 +33,34 @@ $(document).ready(function(){
     	};
     	
     });
+
     $('.btnChangeChartRevenuePre').click(function(){
     	$('#chartRevenue01').css('left','50%');
 		$('#chartRevenue02').css('left','150%');
 		$(this).css('display','none');
+
 		countChartRevenue = 0;
 		$('.btnChangeChartRevenueNext').text('3 tháng >>');
+    });
+	$(document).on('click', '.btn1mon', function(){
+		$('#chartRevenue01').css('z-index','1');
+		$('#chartRevenue01').siblings().css('z-index', '0');
+		$('.dropdownMain span').text('1 tháng');
+	});
+  
+    $('.btn3mon').click(function(){
+    	$('#chartRevenue02').css('z-index','1');
+		$('#chartRevenue02').siblings().css('z-index', '0');
+		$('.dropdownMain span').text('3 tháng');	
+    });
+    $('.btnYear').click(function(){
+    	$('#chartRevenue03').css('z-index','1');
+		$('#chartRevenue03').siblings().css('z-index', '0');
+		$('.dropdownMain span').text('1 năm');	
+    });
+
+    $('.btndropdown').click(function(){
+    	$('.dropdownHide').slideToggle(100);
     });
 });
 
@@ -53,3 +75,4 @@ function getRateChart (){
 
 	}
 }
+

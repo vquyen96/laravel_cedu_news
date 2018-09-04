@@ -86,7 +86,6 @@ class HomeController extends Controller
             $total_month = 0;
             $total_month_now = 0;
             foreach ($acc->course as $course) {
-                
                 foreach ($course->orderDe as $orderDe) {
                     if ($orderDe->order->ord_status == 0) {
                         $total += $orderDe->orderDe_price;

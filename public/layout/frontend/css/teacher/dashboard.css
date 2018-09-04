@@ -246,14 +246,31 @@ a.titleBtn{
 }
 
 
+.mainBodyItemTitle{
+	display: flex;
+}
+.mainBodyItemTitle h3{
+	font-weight: bold;
+	font-size: 24px;
+	color: #999;
+	line-height: 29px;
+	flex: 1;
+	margin: 0;
+}
+.numOfCourse{
+	line-height: 29px;
+	font-size: 16px;
+	color: #999;
+
+}
+
 
 .homeChartRevenue{
-	box-shadow: 2px 2px 10px #0005;
+	
 	margin: 20px auto;
 	width: auto;
 	height: 450px;
 	padding: 15px;
-	border-radius: 15px;
 	position: relative;
 	overflow: hidden;
 
@@ -284,17 +301,54 @@ a.titleBtn{
 	position: absolute;
     top: 50%;
     left: 50%;
-    height: 90%;
-    width: 90%;
+    height: 100%;
+    width: 100%;
     transform: translate(-50%, -50%);
     transition: 1s;
 }
 #chartRevenue01{
-	left: 50%;
+	z-index: 1;
 }
 #chartRevenue02{
-	left: 150%;
+	z-index: 0;
 }
 #chartRevenue03{
-	left: 250%;
+	z-index: 0;
+}
+
+.btndropdown{
+	font-weight: 600;
+	line-height: 29px;
+	font-size: 16px;
+	color: #999;
+	position: relative;
+}
+.dropdownMain{
+	cursor: pointer;
+    padding: 5px 25px;
+}
+.dropdownHide{
+	display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 2;
+    box-shadow: 1px 1px 2px #0004;
+    padding: 0 5px;
+    background: #fff;
+}
+.dropdownItem{
+	cursor: pointer;
+    white-space: nowrap;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+
+}
+.dropdownItem:last-child {
+    border-bottom: 0;
+}
+a.canvasjs-chart-credit{
+	display: none;
 }

@@ -70,7 +70,7 @@
 		</div>
 		<div class="container">
 			<div id="page-number">
-				{!! $course->links('layout.paginate') !!}	
+				{{-- {!! $course->links('layout.paginate') !!}	 --}}
 			</div>
 		</div>
 	</section>

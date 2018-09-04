@@ -53,7 +53,7 @@
 							Tổng thu nhập
 						</div>
 						<div class="mainBodyItemMainAmount">
-							70.000.000 vnđ
+							{{ number_format($total_amount, 0, ',', '.') }} vnđ
 						</div>
 						<div class="mainBodyItemMainTitle">
 							Số dư
@@ -69,13 +69,13 @@
 							Tổng số học sinh
 						</div>
 						<div class="mainBodyItemMainAmount">
-							1.234.244
+							{{ number_format($total_student, 0, ',', '.') }}
 						</div>
 						<div class="mainBodyItemMainTitle">
 							Học sinh mới trong tháng
 						</div>
 						<div class="mainBodyItemMainAmount">
-							1.323
+							{{ number_format($student_month, 0, ',', '.') }}
 						</div>
 					</div>
 				</div>
@@ -187,6 +187,12 @@
 			<div class="row main_bodyItem bodyItem3">
 				<div class="col-md-12">
 					<div class="mainBodyItemMain">
+						<div class="mainBodyItemTitle">
+							<h3>Khóa học</h3>
+							<div class="numOfCourse">
+								Bạn có {{ $teacher->acc->course->count() }} khóa học
+							</div>
+						</div>
 						<table class="table table-hover">
 						  <thead>
 						    <tr>
@@ -259,10 +265,32 @@
 
 			<div class="row main_bodyItem bodyItem4">
 				<div class="col-md-12">
+					
 					<div class="mainBodyItemMain">
+						<div class="mainBodyItemTitle">
+							<h3>Doanh Thu</h3>
+							
+							<div class="btndropdown">
+								<div class="dropdownMain">
+									<span>1 tháng</span> <i class="fas fa-angle-down"></i>
+								</div>
+								<div class="dropdownHide">
+									<div class="dropdownItem btn1mon">
+										1 tháng
+									</div>
+									<div class="dropdownItem btn3mon">
+										3 tháng
+									</div>
+									<div class="dropdownItem btnYear">
+										1 năm
+									</div>
+								</div>
+							</div>
+							{{-- <div class="btnChangeChartRevenuePre"> </div>
+							<div class="btnChangeChartRevenueNext"> 3 tháng >></div> --}}
+						</div>
 						<div class="homeChartRevenue">
-							<div class="btnChangeChartRevenuePre"> </div>
-							<div class="btnChangeChartRevenueNext"> 3 tháng >></div>
+							
 							<div id="chartRevenue01" class="chart"></div>
 							<div id="chartRevenue02" class="chart"></div>
 							<div id="chartRevenue03" class="chart"></div>

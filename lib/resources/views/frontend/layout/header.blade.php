@@ -6,44 +6,63 @@
 				<img src="img/LOGO_CEDU1.png">
 			</a>
 		</div>
-
-		<div class="headerLeftItem headerDropdown">
-			<a>
-				Khóa học
-			</a>
-			<div class="headerItemDropdown course">
-				@foreach($groups as $item)
-				<div class="headerItemDropdownItem">
-					<div class="headerItemDropdownItemIcon">
-						<img src="{{ asset('lib/storage/app/group/'.$item->gr_img) }}">
+		@if (Auth::guest() || Auth::user()->level == 9)
+			<div class="headerLeftItem headerDropdown">
+				<a>
+					Khóa học
+				</a>
+				<div class="headerItemDropdown course">
+					@foreach($groups as $item)
+					<div class="headerItemDropdownItem">
+						<div class="headerItemDropdownItemIcon">
+							<img src="{{ asset('lib/storage/app/group/'.$item->gr_img) }}">
+						</div>
+						<a href="{{ asset('courses/'.$item->gr_slug) }}" class="headerItemDropdownItemContent">
+							{{ $item->gr_name }}
+						</a>
 					</div>
-					<a href="{{ asset('courses/'.$item->gr_slug) }}" class="headerItemDropdownItemContent">
-						{{ $item->gr_name }}
-					</a>
+					@endforeach
 				</div>
-				@endforeach
 			</div>
-		</div>
-		<div class="headerLeftItem {{ Request::segment(1) != '' ? 'd-none' : '' }}">
-			<a href="{{ asset('doc') }}">
-				Tài liệu
-			</a>
-		</div>
-		<div class="headerLeftItem {{ Request::segment(1) != '' ? 'd-none' : '' }}">
-			<a href="{{ asset('news') }}">
-				Tin tức
-			</a>
-		</div>
-		<div class="headerLeftItem {{ Request::segment(1) != '' ? 'd-none' : '' }}">
-			<a href="{{ asset('courses') }}">
-				Trở thành đối tác
-			</a>
-		</div>
-		<div class="headerLeftItem {{ Request::segment(1) == '' ? 'd-none' : '' }} searchHeader">
-			<form>	
-				<input type="text" name="" class="inputSearchHead" placeholder="Search">
-			</form>
-		</div>
+			<div class="headerLeftItem {{ Request::segment(1) != '' ? 'd-none' : '' }}">
+				<a href="{{ asset('doc') }}">
+					Tài liệu
+				</a>
+			</div>
+			<div class="headerLeftItem {{ Request::segment(1) != '' ? 'd-none' : '' }}">
+				<a href="{{ asset('news') }}">
+					Tin tức
+				</a>
+			</div>
+			<div class="headerLeftItem {{ Request::segment(1) != '' ? 'd-none' : '' }}">
+				<a href="{{ asset('courses') }}">
+					Trở thành đối tác
+				</a>
+			</div>
+			<div class="headerLeftItem {{ Request::segment(1) == '' ? 'd-none' : '' }} searchHeader">
+				<form>	
+					<input type="text" name="" class="inputSearchHead" placeholder="Search">
+				</form>
+			</div>
+		@endif
+
+		@if (Auth::check() && Auth::user()->level == 8)
+			{{-- expr --}}
+		@endif
+
+		@if (Auth::check() && Auth::user()->level == 7)
+			<div class="headerLeftItem">
+				<a href="{{ asset('teacher/dashboard') }}">
+					Thống kê
+				</a>
+			</div>
+			<div class="headerLeftItem">
+				<a href="{{ asset('teacher/courses') }}">
+					Khóa học
+				</a>
+			</div>
+		@endif
+			
 
 	</div>
 
@@ -88,7 +107,16 @@
 							Khóa học đang học
 						</a>
 					</div>
+					<div class="headerItemDropdownItem">
+						<div class="headerItemDropdownItemIcon">
+							<i class="fas fa-user"></i>
+						</div>
+						<a href="{{ asset('user') }}" class="headerItemDropdownItemContent">
+							Thông tin cá nhân
+						</a>
+					</div>
 					@endif
+
 					@if(Auth::user()->level == 8 || Auth::user()->level == 7)
 					<div class="headerItemDropdownItem">
 						<div class="headerItemDropdownItemIcon">
@@ -99,22 +127,7 @@
 						</a>
 					</div>
 					@endif
-					<div class="headerItemDropdownItem">
-						<div class="headerItemDropdownItemIcon">
-							<i class="fas fa-user"></i>
-						</div>
-						<a href="{{ asset('user') }}" class="headerItemDropdownItemContent">
-							Thông tin cá nhân
-						</a>
-					</div>
-					<div class="headerItemDropdownItem">
-						<div class="headerItemDropdownItemIcon">
-							<i class="fas fa-unlock-alt"></i>
-						</div>
-						<a href="{{ asset('user/change_pass') }}" class="headerItemDropdownItemContent">
-							Đổi mật khẩu
-						</a>
-					</div>
+					
 					
 					@if(Auth::user()->level == 8)
 						<div class="headerItemDropdownItem">
@@ -133,8 +146,45 @@
 								Lịch sử giao dịch
 							</a>
 						</div>
+						<div class="headerItemDropdownItem">
+							<div class="headerItemDropdownItemIcon">
+								<i class="fas fa-user"></i>
+							</div>
+							<a href="{{ asset('user') }}" class="headerItemDropdownItemContent">
+								Thông tin cá nhân
+							</a>
+						</div>
 
 					@endif
+
+					@if(Auth::user()->level == 7)
+					<div class="headerItemDropdownItem">
+						<div class="headerItemDropdownItemIcon">
+							<i class="fas fa-book"></i>
+						</div>
+						<a href="{{ asset('teacher/course') }}" class="headerItemDropdownItemContent">
+							Khóa học
+						</a>
+					</div>
+					
+					<div class="headerItemDropdownItem">
+						<div class="headerItemDropdownItemIcon">
+							<i class="fas fa-user"></i>
+						</div>
+						<a href="{{ asset('teacher/profile') }}" class="headerItemDropdownItemContent">
+							Thông tin cá nhân
+						</a>
+					</div>
+					@endif
+
+					<div class="headerItemDropdownItem">
+						<div class="headerItemDropdownItemIcon">
+							<i class="fas fa-unlock-alt"></i>
+						</div>
+						<a href="{{ asset('user/change_pass') }}" class="headerItemDropdownItemContent">
+							Đổi mật khẩu
+						</a>
+					</div>
 					<div class="headerItemDropdownItem">
 						<div class="headerItemDropdownItemIcon">
 							<i class="fas fa-sign-out-alt"></i>

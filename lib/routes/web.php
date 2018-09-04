@@ -259,9 +259,12 @@ Route::group(['namespace'=>'Frontend', 'middleware'=>'CORS'],function(){
 
 	Route::group(['prefix' => 'teacher'], function(){
 		Route::get('dashboard', 'TeacherController@getDashboard');
-		Route::get('course/{slug}', 'TeacherController@getCourse');
-		Route::get('/{email}','UserController@getTeacher');
-		Route::get('/{email}/{rate}', 'UserController@getTeacherRating');
+		Route::get('courses', 'TeacherController@getCourse');
+		Route::get('courses/{slug}', 'TeacherController@getDetailCourse');
+		Route::get('profile', 'TeacherController@getProfile');
+
+		Route::get('/{email}','TeacherController@getTeacher');
+		Route::get('/{email}/{rate}', 'TeacherController@getTeacherRating');
 
 	});
 		
