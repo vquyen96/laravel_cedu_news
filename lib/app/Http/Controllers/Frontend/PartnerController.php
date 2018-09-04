@@ -14,8 +14,9 @@ class PartnerController extends Controller
 {
     public function getList(){
     	// $data['teacher'] = Account::where('level',3)->paginate(3);
-        $data['teacher'] = Teacher::orderBy('tea_featured','desc')->paginate(3);
-    	return view('frontend.partner',$data);
+        // $data['teacher'] = Teacher::orderBy('tea_featured','desc')->paginate(3);
+            $data['teacher'] = Teacher::orderBy('tea_featured','desc')->take(10)->get();
+    	return view('frontend.partner.partner',$data);
     }
     public function getAffiliate(){
     	return view('frontend.affiliate');
